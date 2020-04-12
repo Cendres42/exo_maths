@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr" xml:lang="fr" xmlns="http://www.w3.org/0999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <title>Exercice pour Mathias</title>
+    <meta name="description" content="Site de vente en ligne qui vous permet de choisir la catégorie d'articles qui vous intéresse afin qu'on ne vous présente pas d'articles non pertinents">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	  <link rel="stylesheet" type="text/css" href="exo.css">
+	  <script src="exo.js" defer> </script>
+</head>
+<html>
+<body onload="reinit()">
+ <div id="exo" style="background-image:url('mystery.jpg');" width="500px">
+  <div>
+    <video  autoplay="true" controls="false" id="video" allowfullscreen="true" class="videoflottante" width="20px" height="15px" controls>
+      <source src="" type="video/mp4">
+      Your browser does not support the video tag.
+  </video>
+  </div>
+  <label for="j"><span>Joueur: </span></label>
+  <select id="joueur" name="j" size="1">
+      <option value="Mathias">Mathias</option>
+      <option value="Gwen">Gwen</option>
+      <option value="Kiki">Kiki</option>
+  </select>
+
+<div id="nb1" class="espace"><span></span></div>
+<div id="signe" class="espace"><span>-</span></div>
+
+<div id="nb2" class="espace"><span></span></div>
+<div id="egale" class="espace"><span>=</span></div>
+<input id="resultat" type="number" name="resultat" />
+<div ><input id="valider-resultat" type="button" value="Valider réponse!!"/></div>
+
+<div id="reponse" class="espace"><span></span></div>
+<input id="rejouer" type="button" value="Rejouer!!"/>
+<div id="points">
+  <p> <span>Nombre de bonnes réponses:</span><p>
+  <div id="ok" class="Kiki Gwen Mathias"><span></span></div>
+  <p> <span>Nombre de mauvaises réponses:</span><p>
+  <div id="pasok" class="Kiki Gwen Mathias"><span></span></div>
+</div>
+</div>
+</body>
+</html>

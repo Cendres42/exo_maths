@@ -1,0 +1,40 @@
+#exo{
+  height:1034px;
+  width:800px;
+  text-align:center;
+
+  }
+  .videoflottante{
+    float:right;
+    position:abolute;
+    top:0;
+    left:0;
+  }
+span{
+  background-color: #18c6bd;
+ border-radius: 5px;
+ padding-left:40px;
+  padding-right: 40px;
+    font-size:20px;
+   }
+   #rejouer, #valider-resultat, #joueur{
+     color:white;
+     background-color: #064542;
+      border-radius: 5px;
+    padding-left:40px;
+     padding-right: 40px;
+       font-size:20px;
+      }
+      #valider-resultat{
+        margin-top:10px;
+      }
+   #nb1{
+padding-top:10px;
+padding-bottom:10px;
+   }
+.espace{
+   padding-bottom:21px;
+ }
+ #reponse{
+   padding-top:10px;
+ }
