@@ -12,6 +12,10 @@ let image=document.getElementById("exo");
 let joueur = "";
 let bouton_ajout=document.getElementById("ajout-joueur");
 let keyname="";
+let nouveau_joueur="";
+let popup ="";
+let plop="";
+let joueurs=[];
 //let video=document.getElementById('video');
 
 
@@ -21,16 +25,17 @@ bouton_rejouer.addEventListener("click",reinit);
 choix.addEventListener("change",reinit);
 bouton_ajout.addEventListener("click",ajout_joueur);
 
-
 function ajout_joueur(){
-joueur = document.getElementById("joueur"); //le noeud parent
-let popup = prompt("Saisissez votre pseudo :", "Texte par défaut");
-console.log(popup);
-let nouveau_joueur = document.createElement('option');
-joueur.appendChild(nouveau_joueur);
-nouveau_joueur.innerHTML=popup; //creation de l'element
-console.log(nouveau_joueur);
-};
+  joueur = document.getElementById("joueur"); //le noeud parent
+  popup = prompt("Saisissez votre pseudo :", "Texte par défaut");
+  joueurs.push(popup);
+  localStorage.setItem("liste_joueurs", JSON.stringify(joueurs));
+  nouveau_joueur = document.createElement('option');
+  joueur.appendChild(nouveau_joueur);
+  nouveau_joueur.innerHTML=popup;
+  alert("sélectionner votre nom dans le menu déroulant");
+}
+
 
 function personnalisation(){
 joueur=choix.value;
@@ -50,6 +55,33 @@ else{
   image.setAttribute("style","background-image:url('mystery.jpg');");
 }
 };
+
+function validation(){
+  if (resultat.value==bonResultat){
+  document.querySelector("#reponse span").innerHTML="Bravo";
+    ok.innerHTML++;
+    sessionStorage.setItem(keyname + "-ok",ok.innerHTML);
+  }
+    else
+  {
+  document.querySelector("#reponse span").innerHTML="Essai encore";
+    pasok.innerHTML++;
+    sessionStorage.setItem(keyname +"-pasok",pasok.innerHTML);
+  }
+}
+
+function creation_option(){
+  joueurs= JSON.parse(localStorage.getItem("liste_joueurs"));
+  if(joueurs==null){
+    joueurs=[];
+  }
+  for (let i=0; i<joueurs.length; i++){
+  joueur = document.getElementById("joueur"); //le noeud parent
+  nouveau_joueur = document.createElement('option');
+  joueur.appendChild(nouveau_joueur);
+  nouveau_joueur.innerHTML=joueurs[i];
+  }
+}
 
 function reinit(){
   document.getElementById('resultat').value="";
@@ -104,27 +136,6 @@ resultat.addEventListener("keydown", function(event){
 });
 //fonction affectation des points au joueur
 
-function validation(){
-  console.log("Evenement click pour jeu " + bonResultat);
-  if (resultat.value==bonResultat){
-  document.querySelector("#reponse span").innerHTML="Bravo";
-    ok.innerHTML++;
-    sessionStorage.setItem(keyname + "-ok",ok.innerHTML);
-  }
-    /*let video=document.getElementById('video');
-  video.setAttribute("src","feu.mp4");
-  video.setAttribute("width","960px");
-  video.setAttribute("height","660px");*/
-
-  //let points=ok.innerhtml;
-  //console.log(points);
-    else
-  {
-  document.querySelector("#reponse span").innerHTML="Essai encore";
-    pasok.innerHTML++;
-    sessionStorage.setItem(keyname +"-pasok",pasok.innerHTML);
-  }
-}
 
 
 

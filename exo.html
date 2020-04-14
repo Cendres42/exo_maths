@@ -9,7 +9,7 @@
 	  <script src="exo.js" defer> </script>
 </head>
 <html>
-<body onload="reinit()">
+<body onload="creation_option(), reinit()">
  <div id="exo" style="background-image:url('mystery.jpg');" width="500px">
   <div>
     <video  autoplay="true" controls="false" id="video" allowfullscreen="true" class="videoflottante" width="20px" height="15px" controls>
@@ -19,9 +19,7 @@
   </div>
   <label for="j"><span>Joueur: </span></label>
   <select id="joueur" name="j" size="1">
-      <option value="Mathias">Mathias</option>
-      <option value="Gwen">Gwen</option>
-      <option value="Kiki">Kiki</option>
+      <option value="Anonyme">Anonyme</option>
   </select>
   <div ><input id="ajout-joueur" type="button" value="Nouveau joueur"/></div>
 
