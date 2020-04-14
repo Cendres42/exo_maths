@@ -4,7 +4,7 @@ let ok=document.querySelector("#ok span");
 ok.innerHTML=0;
 let pasok=document.querySelector("#pasok span");
 pasok.innerHTML=0;
-let resultat=document.getElementById('valider-resultat');
+let resultat=document.getElementById('resultat');
 let bouton_rejouer=document.getElementById("rejouer");
 let valider=document.getElementById('valider-resultat');
 let choix=document.getElementById("joueur");
@@ -37,6 +37,7 @@ function reinit(){
   document.querySelector("#reponse span").innerHTML="";
   personnalisation();
   testMath();
+  resultat.focus();
   //video.setAttribute("src","");
   //video.setAttribute("width","20px");
   //video.setAttribute("height","20px");
@@ -73,24 +74,31 @@ else if (signe=='+'){
 //possibilité de rejouer lance fonction  reinit
 
 bouton_rejouer.addEventListener("click",reinit);
-choix.addEventListener("change",reinit);
-//fonction affectation des points au joueur
 
-  valider.addEventListener("click",function(){
+choix.addEventListener("change",reinit);
+
+resultat.addEventListener("keydown", function(event){
+  if (event.keyCode==13 & resultat!=""){
+    validation();
+    bouton_rejouer.focus();
+    event.preventDefault();
+    event.stopPropagation();
+  }
+});
+//fonction affectation des points au joueur
+valider.addEventListener("click",validation);
+
+function validation(){
   console.log("Evenement click pour jeu " + bonResultat);
-  let resultat=document.getElementById('resultat').value;
-  if (resultat==bonResultat){
+  if (resultat.value==bonResultat){
   document.querySelector("#reponse span").innerHTML="Bravo";
     ok.innerHTML++;
     if(joueur=="Mathias"){
-      sessionStorage.setItem("Mathias",ok.innerHTML);
-      alert(sessionStorage.getItem("Mathias"));}
+      sessionStorage.setItem("Mathias",ok.innerHTML);}
     else if(joueur=="Kiki"){
-      sessionStorage.setItem("Kiki",ok.innerHTML);
-      alert(sessionStorage.getItem("Kiki"));}
+      sessionStorage.setItem("Kiki",ok.innerHTML);}
     else if(joueur=="Gwen"){
-      sessionStorage.setItem("Gwen",ok.innerHTML);
-      alert(sessionStorage.getItem("Gwen"));}
+      sessionStorage.setItem("Gwen",ok.innerHTML);}
     /*let video=document.getElementById('video');
   video.setAttribute("src","feu.mp4");
   video.setAttribute("width","960px");
@@ -98,22 +106,19 @@ choix.addEventListener("change",reinit);
 
   //let points=ok.innerhtml;
   //console.log(points);
-}
-else
-{
+  }
+  else
+  {
   document.querySelector("#reponse span").innerHTML="Essai encore";
     pasok.innerHTML++;
     if(joueur=="Mathias"){
-      sessionStorage.setItem("Mathias-pasok",pasok.innerHTML);
-      alert(sessionStorage.getItem("Mathias-pasok"));}
+      sessionStorage.setItem("Mathias-pasok",pasok.innerHTML);}
     else if(joueur=="Kiki"){
-      sessionStorage.setItem("Kiki-pasok",pasok.innerHTML);
-      alert(sessionStorage.getItem("Kiki-pasok"));}
-  else if(joueur=="Gwen"){
-      sessionStorage.setItem("Gwen-pasok",pasok.innerHTML);
-      alert(sessionStorage.getItem("Gwen-pasok"));}
+      sessionStorage.setItem("Kiki-pasok",pasok.innerHTML);}
+    else if(joueur=="Gwen"){
+      sessionStorage.setItem("Gwen-pasok",pasok.innerHTML);}
   }
-});
+}
 
 
 
