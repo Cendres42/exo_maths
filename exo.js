@@ -18,7 +18,6 @@ let plop="";
 let joueurs=[];
 //let video=document.getElementById('video');
 
-
 // Les boutons et évènements:
 valider.addEventListener("click",validation);
 bouton_rejouer.addEventListener("click",reinit);
@@ -123,9 +122,6 @@ function testMath(){
     }
 }
 
-//possibilité de rejouer lance fonction  reinit
-
-
 resultat.addEventListener("keydown", function(event){
   if (event.keyCode==13 & resultat!=""){
     validation();
@@ -134,7 +130,6 @@ resultat.addEventListener("keydown", function(event){
     event.stopPropagation();
   }
 });
-//fonction affectation des points au joueur
 
 
 
